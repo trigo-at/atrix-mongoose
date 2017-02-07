@@ -1,0 +1,26 @@
+version: '2'
+services:
+  atrix-mongoose:
+    build:
+      context: .
+      args:
+        - NPM_TOKEN=${NPM_TOKEN}
+    image: trigo/atrix-mongoose:latest
+    command: 'yarn run test'
+    environment:
+      - MONGO_SRV=mongodb://mongo
+      - NODE_ENV=test
+      - NPM_TOKEN
+    networks:
+      - atrix-mongoose_test
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    networks:
+      - atrix-mongoose_test
+
+networks:
+  atrix-mongoose_test:
+    driver: bridge
