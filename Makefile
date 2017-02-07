@@ -26,7 +26,7 @@ ci-test: build
 
 publish: build
 	docker-compose -f docker-compose.test.yml run --rm $(PACKAGE) \
-	   	/bin/bash -c 'if [ "$(PUBLISHED_VERSION)" != $$(npm show @trigo/$(PACKAGE) version) ]; then \
+	   	/bin/bash -c 'if [ "$(REPO_VERSION)" != $$(npm show @trigo/$(PACKAGE) version) ]; then \
 			npm publish; \
 		else \
 			echo "Version unchanged, no need to publish"; \
