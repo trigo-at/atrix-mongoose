@@ -1,5 +1,6 @@
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/trigo-at/atrix-mongoose.svg?token=ae8a63062557b75372fcca4783b39d76b88315b19073a3a99ab1628ee0a3f731)](https://greenkeeper.io/)[![NSP Status](https://nodesecurity.io/orgs/trigo-gmbh/projects/b7a1970f-96b8-482f-b7a3-4ddaefa54929/badge)](https://nodesecurity.io/orgs/trigo-gmbh/projects/b7a1970f-96b8-482f-b7a3-4ddaefa54929)
+[![Greenkeeper badge](https://badges.greenkeeper.io/trigo-at/atrix-mongoose.svg?token=ae8a63062557b75372fcca4783b39d76b88315b19073a3a99ab1628ee0a3f731)](https://greenkeeper.io/) 
+[![NSP Status](https://nodesecurity.io/orgs/trigo-gmbh/projects/b7a1970f-96b8-482f-b7a3-4ddaefa54929/badge)](https://nodesecurity.io/orgs/trigo-gmbh/projects/b7a1970f-96b8-482f-b7a3-4ddaefa54929)
 
 # atrix-mongoose
 ## mongoose plugin for atrix microservice framework
