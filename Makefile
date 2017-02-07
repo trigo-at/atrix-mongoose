@@ -1,6 +1,6 @@
+SHELL=/bin/bash
 PACKAGE=$(shell cat package.json | jq ".name" | sed 's/@trigo\///')
 
-PUBLISHED_VERSION:=$(shell npm show @trigo/$(PACKAGE) version)
 REPO_VERSION:=$(shell cat package.json| jq .version)
 
 install:
@@ -26,7 +26,7 @@ ci-test: build
 
 publish: build
 	docker-compose -f docker-compose.test.yml run --rm $(PACKAGE) \
-	   	/bin/bash -c 'if [ "$(PUBLISHED_VERSION)" != $(REPO_VERSION) ]; then \
+	   	/bin/bash -c 'if [ "$(PUBLISHED_VERSION)" != $$(npm show @trigo/$(PACKAGE) version) ]; then \
 			npm publish; \
 		else \
 			echo "Version unchanged, no need to publish"; \
