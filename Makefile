@@ -1,5 +1,8 @@
 PACKAGE=$(shell cat package.json | jq ".name" | sed 's/@trigo\///')
 
+PUBLISHED_VERSION:=$(shell npm show @trigo/$(PACKAGE) version)
+REPO_VERSION:=$(shell cat package.json| jq .version)
+
 install:
 	yarn install
 
@@ -22,17 +25,12 @@ ci-test: build
 		exit $$test_exit
 
 publish: build
-	@if [ $$(cat package.json| jq .version) != \"$$(npm show @trigo/$(PACKAGE) version)\" ]; then \
-		docker-compose -f docker-compose.test.yml run --rm $(PACKAGE) npm publish; \
-		test_exit=$$?; \
-		docker-compose -f docker-compose.test.yml down; \
-		exit $$test_exit; \
-	else \
-		echo "Version unchanged, no need to publish"; \
-	fi
+	docker-compose -f docker-compose.test.yml run --rm $(PACKAGE) \
+	   	/bin/bash -c 'if [ "$(PUBLISHED_VERSION)" != $(REPO_VERSION) ]; then \
+			npm publish; \
+		else \
+			echo "Version unchanged, no need to publish"; \
+		fi'; EXIT_CODE=$$?; \
+	docker-compose -f docker-compose.test.yml down; \
+	exit $$EXIT_CODE \
 
-setup-dev:
-	@cd lib && npm link
-	@cd examples && npm link @trigo/atrix
-	@cd examples && npm install
-	@npm install
