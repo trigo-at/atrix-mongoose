@@ -22,10 +22,14 @@ ci-test: build
 		exit $$test_exit
 
 publish: build
-	docker-compose -f docker-compose.test.yml run --rm $(PACKAGE) npm publish; \
+	@if [ $$(cat package.json| jq .version) != \"$$(npm show @trigo/$(PACKAGE) version)\" ]; then \
+		docker-compose -f docker-compose.test.yml run --rm $(PACKAGE) npm publish; \
 		test_exit=$$?; \
 		docker-compose -f docker-compose.test.yml down; \
-		exit $$test_exit
+		exit $$test_exit; \
+	else \
+		echo "Version unchanged, no need to publish"; \
+	fi
 
 setup-dev:
 	@cd lib && npm link
