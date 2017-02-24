@@ -130,7 +130,7 @@ svc.endpoints.add('http');
 svc.start();
 ```
 
-Run service with ```node ---harmony-async-await index.js```
+Run service with ```node index.js```
 
 ## Common issues
 
