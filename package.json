@@ -1,10 +1,13 @@
 {
   "name": "@trigo/atrix-mongoose",
   "version": "0.4.1",
+  "engines": {
+    "node": ">=7.6.0"
+  },
   "description": "mongoosse plugin as atrix data source",
   "main": "index.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha --timeout 30000 --harmony-async-await $(find . -name '*.specs.js' -not -path './node_modules/*')",
+    "test": "NODE_ENV=test mocha --timeout 30000 $(find . -name '*.specs.js' -not -path './node_modules/*')",
     "lint": "eslint lib specs",
     "yarn": "yarn install"
   },
