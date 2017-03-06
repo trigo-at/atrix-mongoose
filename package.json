@@ -14,7 +14,7 @@
   "author": "Christian Hubinger <christian@trigo.at>",
   "license": "ISC",
   "dependencies": {
-    "@trigo/atrix": "^0.5.1",
+    "@trigo/atrix": "^0.6.0",
     "@trigo/eslint-config-trigo": "^3.2.0",
     "bluebird": "^3.4.7",
     "gridfs-stream": "^1.1.1",
