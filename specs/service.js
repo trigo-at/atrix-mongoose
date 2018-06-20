@@ -23,7 +23,12 @@ const svc = new atrix.Service('mongoose', {
 				connectionString: `${mongoDb}/test-atrix-mongoose-m2`,
 			},
 		},
+		m3: {
+			type: 'mongoose',
+			config: {
+				connectionString: `${mongoDb}/test-atrix-mongoose-m2`,
+			},
+		},
 	},
 });
 atrix.addService(svc);
-
