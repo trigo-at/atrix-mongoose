@@ -11,6 +11,6 @@ describe('loads datasources into service', () => {
 	it('dataSources is populated with configs', async () => {
 		expect(atrix.services.mongoose.dataSources.m1).to.be.an('object');
 		expect(atrix.services.mongoose.dataSources.m2).to.be.an('object');
+		expect(atrix.services.mongoose.dataSources.m3).to.be.an('object');
 	});
 });
-

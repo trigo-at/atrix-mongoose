@@ -32,6 +32,10 @@ describe('loads datasources into service', () => {
 		expect(atrix.services.mongoose.dataConnections.m1.schema).to.be.an('object');
 	});
 
+	it('can handle absence of a model factory path', async () => {
+		expect(atrix.services.mongoose.dataConnections.m3.schema).to.be.undefined;
+	});
+
 	it('expose "grifs" object', async () => {
 		expect(atrix.services.mongoose.dataConnections.m1.gridfs).to.be.an('object');
 		expect(atrix.services.mongoose.dataConnections.m1.gridfs).to.be.an('object');
@@ -85,4 +89,3 @@ describe('loads datasources into service', () => {
 		expect(atrix.services.mongoose.dataConnections.m2.mongoose).to.be.an('object');
 	});
 });
-
