@@ -32,3 +32,5 @@ const svc = new atrix.Service('mongoose', {
 	},
 });
 atrix.addService(svc);
+
+module.exports = svc;
