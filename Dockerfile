@@ -1,3 +1,3 @@
-FROM trigo/node-base:8.5-yarn-lib
+FROM trigo/node-base:9.11-yarn-lib
 
 # RUN ["npm", "publish"]
