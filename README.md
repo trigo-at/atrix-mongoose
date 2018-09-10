@@ -136,3 +136,6 @@ Run service with ```node index.js```
 
 If you installed mongoose itself and your code requires it somewhere before the plugin is loaded, you have a good chance to break connection & model setup. **Do not install mongoose itself!**. If unsure simply run ```npm remove -S mongoose``` in your application root folder.
 
+## Contributing
+
+If you update a package (especially mongoose) or the node version than you should run `specs/failed-connection.specs.sh` to ensure that the return codes on failed MongoDb connections are still correct.
