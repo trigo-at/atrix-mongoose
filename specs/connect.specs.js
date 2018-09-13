@@ -10,7 +10,7 @@ require('./service');
 const atrix = require('@trigo/atrix');
 
 describe('loads datasources into service', () => {
-	beforeEach(async () => {
+	before(async () => {
 		await atrix.services.mongoose.start();
 	});
 
@@ -20,6 +20,10 @@ describe('loads datasources into service', () => {
 
 		await M1TestModel.remove({});
 		await M2TestModel.remove({});
+	});
+
+	after(async () => {
+		await atrix.services.mongoose.stop();
 	});
 
 	it('connect all and expose as service.dataConnections', async () => {
