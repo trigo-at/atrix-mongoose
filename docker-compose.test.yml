@@ -16,8 +16,8 @@ services:
     depends_on:
       - mongo
 
-    mongo:
-      image: mongo:3.2
+  mongo:
+    image: mongo:3.2
     networks:
       - atrix-mongoose_test
 
