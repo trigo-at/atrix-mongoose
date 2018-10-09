@@ -1,6 +1,6 @@
 {
   "name": "@trigo/atrix-mongoose",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "engines": {
     "node": ">=7.6.0"
   },
