@@ -7,6 +7,11 @@
 
 atrix manoggose plugin automaticaly sets up the connection to you mongo db using monggose models
 
+## Compatibility
+
+`atrix-mongoose < 1.0.0` works with `atrix < 6.0.0`
+`atrix-mongoose >= 1.0.0` works with `atrix >= 6.0.0`
+
 ## Features
 * configuration driven
 * multi connection/database mgmt
@@ -83,7 +88,8 @@ module.exports = (req, reply, service) => {
 const atrix = require('@trigo/atrix');
 const path = require('path');
 
-const svc = new atrix.Service('mongoose', {
+const svc = atrix.addService({
+	name: 'mongoose', 
 	endpoints: {
 		http: {
 			// declare port to bind
@@ -117,12 +123,6 @@ const svc = new atrix.Service('mongoose', {
 		},
 	},
 });
-
-// register service in atrix
-atrix.addService(svc);
-
-// setup http endpoint
-svc.endpoints.add('http');
 
 // start service. 
 // This will wait for the mongo connection to be available before starting up. 

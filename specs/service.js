@@ -7,7 +7,8 @@ atrix.configure({ pluginMap: { mongoose: path.join(__dirname, '../') } });
 
 const mongoDb = process.env.MONGO_SRV || 'localhost:27017';
 
-const svc = new atrix.Service('mongoose', {
+const svc = atrix.addService({
+	name: 'mongoose',
 	dataSource: {
 		m1: {
 			type: 'mongoose',
@@ -31,6 +32,5 @@ const svc = new atrix.Service('mongoose', {
 		},
 	},
 });
-atrix.addService(svc);
 
 module.exports = svc;
